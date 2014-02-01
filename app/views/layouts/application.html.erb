@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Codespork</title>
+  <meta charset='utf-8'>
+  <%= stylesheet_link_tag 'templatestyle', media: 'all' %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="container">
+  <header class="headerBar">
+    <%= image_tag 'spig.png', class:'spig' %>
+    <%= image_tag 'spork.jpg', id:'spork' %>
+  </header>
+
+  <%= render :partial => 'shared/topNav' %>
+  <%= render :partial => 'shared/sideNav' %>
+
+
+<%= yield %>
+
+</body>
+</html>
