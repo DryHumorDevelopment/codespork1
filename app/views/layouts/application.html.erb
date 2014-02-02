@@ -4,50 +4,45 @@
   <title>Codespork</title>
   <meta charset='utf-8'>
   <%= stylesheet_link_tag 'templatestyle', media: 'all' %>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="container">
   <header class="headerBar">
-    <%= image_tag 'spig.png', class:'spig' %>
-    <%= image_tag 'spork.jpg', id:'spork' %>
+    <%= image_tag 'spig.png', class: 'spig' %>
+    <%= image_tag 'spork.jpg', id: 'spork' %>
     <div id="hmenu">
-    <% if user_signed_in? %>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <%= link_to('Edit', edit_user_registration_path) %>
+      <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+          <%= link_to('Register', new_user_registration_path) %>
 
-
-        <%= link_to('Edit', edit_user_registration_path) %>
-
-    <% else %>
-
-       <%= link_to('Login', new_user_session_path) %>
-
-
-        <%= link_to('Register', new_user_registration_path)  %>
-
-    <% end %>
+      <% end %>
     </div>
   </header>
 
   <div class="notice">
     <% if flash[:notice] %>
-         <p class='flash' ><%= flash[:notice].html_safe %></p>
-        <% end %>
+        <p class='flash'><%= flash[:notice].html_safe %></p>
+    <% end %>
     <% if flash[:alert] %>
-        <p class='alert' ><%= flash[:alert].html_safe %></p>
+        <p class='alert'><%= flash[:alert].html_safe %></p>
     <% end %>
     <% if flash[:error] %>
         <p class="error"><%= flash[:error].html_safe %></p>
-        <% end %>
-    </div>
+    <% end %>
+  </div>
 
   <%= render :partial => 'shared/topNav' %>
   <%= render :partial => 'shared/sideNav' %>
 
 
-<%= yield %>
- </div>
+  <%= yield %>
+
+</div>
 </body>
 </html>
