@@ -1,4 +1,5 @@
 Codespork::Application.routes.draw do
+  devise_for :users
   resources :admins
 
   get "main/index"

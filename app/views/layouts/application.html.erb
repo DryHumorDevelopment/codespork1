@@ -13,13 +13,41 @@
   <header class="headerBar">
     <%= image_tag 'spig.png', class:'spig' %>
     <%= image_tag 'spork.jpg', id:'spork' %>
+    <div id="hmenu">
+    <% if user_signed_in? %>
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
+
+        <%= link_to('Edit', edit_user_registration_path) %>
+
+    <% else %>
+
+       <%= link_to('Login', new_user_session_path) %>
+
+
+        <%= link_to('Register', new_user_registration_path)  %>
+
+    <% end %>
+    </div>
   </header>
+
+  <div class="notice">
+    <% if flash[:notice] %>
+         <p class='flash' ><%= flash[:notice].html_safe %></p>
+        <% end %>
+    <% if flash[:alert] %>
+        <p class='alert' ><%= flash[:alert].html_safe %></p>
+    <% end %>
+    <% if flash[:error] %>
+        <p class="error"><%= flash[:error].html_safe %></p>
+        <% end %>
+    </div>
 
   <%= render :partial => 'shared/topNav' %>
   <%= render :partial => 'shared/sideNav' %>
 
 
 <%= yield %>
-
+ </div>
 </body>
 </html>

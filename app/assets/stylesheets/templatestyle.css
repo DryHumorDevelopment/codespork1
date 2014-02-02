@@ -123,8 +123,7 @@ a:active {
     padding-left: 1%;
     border: ridge 5px black;
     margin-bottom: 3px;
-    margin-top: 3px;
-    margin-left: 10%;
+    margin-top: 5px;
     -webkit-box-shadow: 5px 5px 5px #003031;
     -moz-box-shadow: 5px 5px 5px #003031;
     box-shadow: 5px 5px 5px #003031;
@@ -132,11 +131,18 @@ a:active {
 #spork
 {
     padding-left: 1%;
-    width: 65%;
-    margin-top:5px;
+    margin-bottom:0;
+    margin-left:8%;
+    width:65%;
     border-right: ridge 5px black;
     border-radius: 4em;
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
 
 }
+#hmenu {
+    list-style: none;
+    padding: 10px;
+    padding-left: 0;
+}
+
